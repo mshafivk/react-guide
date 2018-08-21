@@ -43,11 +43,8 @@ class App extends Component {
     });
   };
   render() {
-    let btnClass = "";
     let persons = "";
     if (this.state.showPersonList) {
-      btnClass = classes.Red;
-      // buttonStyle.backgroundColor = 'red';
       persons = (
         <Persons
           persons={this.state.persons}

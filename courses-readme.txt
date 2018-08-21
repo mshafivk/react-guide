@@ -30,7 +30,6 @@ Section 5 - CSS Module Highlights
     - in css file write all required css including mediaquery and keyframe animation
     - import as import classes (anyname) from './Person.css'
     - use as className={classes.Person}
-Section 6- Folder restructuring
+Section 7- Folder restructuring
     - Restructure components, containers and assets
     - Use Persons wrapper component
-    

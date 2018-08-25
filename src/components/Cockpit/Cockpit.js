@@ -14,7 +14,7 @@ const cockpit = props => {
   }
   return (
     <div className={classes.Cockpit}>
-      <h1>Person - Course Module 3</h1>
+      <h1>{props.title}</h1>
       <button onClick={props.clicked} className={btnClass}>
         Change Name
       </button>

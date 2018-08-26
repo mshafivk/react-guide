@@ -1,5 +1,5 @@
 
-  .Cockpit button {
+  .Button {
     width: 250px;
     height:60px;
     background-color: green;
@@ -9,15 +9,15 @@
     font-size: 14px;
     cursor: pointer;
   }
-  .Cockpit button:hover {
+  .Button:hover {
     background-color: lightgreen;
     color:black;
   }
-  .Cockpit button.Red {
+  .Button.Red {
     background-color: red;
     color:black;
   }
-  .Cockpit button.Red:hover {
+  .Button.Red:hover {
     background-color: rgb(230, 167, 167);
     color:white;
   }

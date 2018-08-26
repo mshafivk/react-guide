@@ -118,7 +118,7 @@ class App extends Component {
             this.setState({ showPersonList: true });
           }}
         >
-          Show Persons
+          Show Persons - Simulate shouldComponentUpdate props change check
         </button>
         <Cockpit
           title={this.props.title}

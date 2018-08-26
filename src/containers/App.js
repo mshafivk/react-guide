@@ -3,7 +3,9 @@ import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit";
 import classes from "./App.css";
 
-import WithClass from '../hoc/WithClass';
+import Aux from "../hoc/Aux";
+import WithClass from "../hoc/WithClass";
+import withCls from "../hoc/withCls";
 
 class App extends Component {
   constructor(props) {
@@ -114,7 +116,7 @@ class App extends Component {
     }
 
     return (
-      <WithClass className={classes.App}>
+      <Aux>
         <button
           onClick={() => {
             this.setState({ showPersonList: true });
@@ -129,7 +131,7 @@ class App extends Component {
           clicked={this.togglePersonList}
         />
         {persons}
-      </WithClass>
+      </Aux>
     );
     //troublesome to write in below alternative JS apprach - Above JSX Compiled to below code,
     //thats why we need to import React all the time eventhough we are not directly using it.
@@ -137,7 +139,7 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withCls(App, classes.App);
 //another approach to call handler function and pass params
 ////  {this.state.persons.map((person)=> <Person name={person.name} age={person.age} styleName={person.styleName} click={this.changeNameHandler.bind(this,'Max!!')}/>)}
 

@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import classes from "./Person.css";
 import DeleteButton from "../../DeleteButton/DeleteButton";
 
+import Aux from '../../../hoc/Aux';
+import withCls from '../../../hoc/withCls';
+
 class Person extends Component {
   componentWillMount() {
     console.log("[Person.js] componentWillMount Called!");
@@ -35,7 +38,7 @@ class Person extends Component {
   render() {
     console.log("[Person.js] render Called!");
     return (
-      <div className={classes.Person} id={this.props.id}>
+      <Aux>
         <input
           type="text"
           onChange={ev => this.props.onChange(ev, this.props.id)}
@@ -47,8 +50,8 @@ class Person extends Component {
           <DeleteButton onDelete={this.props.onDelete} />
         </p>
         <p>{this.props.children}</p>
-      </div>
+      </Aux>
     );
   }
 }
-export default Person;
+export default withCls(Person,classes.Person);

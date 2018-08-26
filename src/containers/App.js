@@ -3,6 +3,8 @@ import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit";
 import classes from "./App.css";
 
+import WithClass from '../hoc/WithClass';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -112,7 +114,7 @@ class App extends Component {
     }
 
     return (
-      <div className={classes.App}>
+      <WithClass className={classes.App}>
         <button
           onClick={() => {
             this.setState({ showPersonList: true });
@@ -127,7 +129,7 @@ class App extends Component {
           clicked={this.togglePersonList}
         />
         {persons}
-      </div>
+      </WithClass>
     );
     //troublesome to write in below alternative JS apprach - Above JSX Compiled to below code,
     //thats why we need to import React all the time eventhough we are not directly using it.

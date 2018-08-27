@@ -41,6 +41,7 @@ class Persons extends Component {
         id={person.id}
         key={person.id}
         name={person.name}
+        position={index}
         age={person.age}
         styleName={person.styleName}
         onDelete={() => this.props.onDelete(index)}

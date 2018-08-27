@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import classes from "./Person.css";
 import DeleteButton from "../../DeleteButton/DeleteButton";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import Aux from '../../../hoc/Aux';
-import withCls from '../../../hoc/withCls';
+import Aux from "../../../hoc/Aux";
+import withCls from "../../../hoc/withCls";
 
 class Person extends Component {
   componentWillMount() {
@@ -12,6 +12,8 @@ class Person extends Component {
   }
   componentDidMount() {
     console.log("[Person.js] componentDidMount Called!");
+    if(this.props.position == 0)
+    this.inputElement.focus();
   }
   componentWillUnmount() {
     console.log("[Person.js] componentWillUnmount Called!");
@@ -42,6 +44,7 @@ class Person extends Component {
       <Aux>
         <input
           type="text"
+          ref={(inp)=>this.inputElement = inp}
           onChange={ev => this.props.onChange(ev, this.props.id)}
           placeholder="Update Name here"
           value={this.props.name}
@@ -57,9 +60,10 @@ class Person extends Component {
 }
 Person.propTypes = {
   onChange: PropTypes.func,
-  onDelete:PropTypes.func,
-  click:PropTypes.func,
-  name:PropTypes.string,
-  age:PropTypes.number
-}
-export default withCls(Person,classes.Person);
+  onDelete: PropTypes.func,
+  click: PropTypes.func,
+  name: PropTypes.string,
+  age: PropTypes.number,
+  position:PropTypes.number
+};
+export default withCls(Person, classes.Person);

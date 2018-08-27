@@ -4,7 +4,6 @@ import Cockpit from "../components/Cockpit/Cockpit";
 import classes from "./App.css";
 
 import Aux from "../hoc/Aux";
-import WithClass from "../hoc/WithClass";
 import withCls from "../hoc/withCls";
 
 class App extends Component {
@@ -16,15 +15,16 @@ class App extends Component {
         {
           id: 1,
           name: "Muhammed Shafi Vallattukavil",
-          age: "32",
+          age: 32,
           styleName: ""
         },
-        { id: 2, name: "thansi-mol", age: "24", styleName: "" },
-        { id: 3, name: "afsheen", age: "4", styleName: "" },
-        { id: 4, name: "aisha", age: "2", styleName: "" },
-        { id: 5, name: "alaan", age: "0", styleName: "last" }
+        { id: 2, name: "thansi-mol", age: 24, styleName: "" },
+        { id: 3, name: "afsheen", age: 4, styleName: "" },
+        { id: 4, name: "aisha", age: 2, styleName: "" },
+        { id: 5, name: "alaan", age: 0, styleName: "last" }
       ],
-      showPersonList: false
+      showPersonList: false,
+      toggleClicked:0
     };
   }
   componentWillMount() {
@@ -98,8 +98,9 @@ class App extends Component {
   togglePersonList = () => {
     const showPersonList = this.state.showPersonList;
     console.log("Show Person list", showPersonList);
-    this.setState({
-      showPersonList: !showPersonList
+    this.setState((prevState)=>{
+      return {showPersonList: !showPersonList,
+      toggleClicked: prevState.toggleClicked+1}
     });
   };
   render() {
@@ -129,6 +130,7 @@ class App extends Component {
           showPersonList={this.state.showPersonList}
           persons={this.state.persons}
           clicked={this.togglePersonList}
+          toggleClicked={this.state.toggleClicked}
         />
         {persons}
       </Aux>

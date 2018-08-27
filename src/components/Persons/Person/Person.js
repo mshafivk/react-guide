@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import classes from "./Person.css";
 import DeleteButton from "../../DeleteButton/DeleteButton";
+import PropTypes from 'prop-types';
 
 import Aux from '../../../hoc/Aux';
 import withCls from '../../../hoc/withCls';
@@ -53,5 +54,12 @@ class Person extends Component {
       </Aux>
     );
   }
+}
+Person.propTypes = {
+  onChange: PropTypes.func,
+  onDelete:PropTypes.func,
+  click:PropTypes.func,
+  name:PropTypes.string,
+  age:PropTypes.number
 }
 export default withCls(Person,classes.Person);

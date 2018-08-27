@@ -1,6 +1,5 @@
 import React,{ Fragment }  from "react";
 import classes from "./Cockpit.css";
-import Aux from "../../hoc/Aux";
 const cockpit = props => {
   const REACT_VERSION = React.version;
   const clsList = [];
@@ -19,12 +18,15 @@ const cockpit = props => {
       <h1>{props.title}</h1>
       <h3>React Version - {REACT_VERSION}</h3>
       <button onClick={props.clicked} className={btnClass}>
-        Change Name
+        Toggle Person List
       </button>
       <p className={clsList.join(" ")}>
         {props.showPersonList
           ? `You have ${props.persons.length} items in the list`
           : ``}
+      </p>
+      <p>
+        You Clicked toggle button {props.toggleClicked} times !
       </p>
     </Fragment>
   );

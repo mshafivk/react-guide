@@ -30,6 +30,10 @@ class Person extends Component {
     );
   }
 
+  focus () {
+    this.inputElement.current.focus();
+  }
+
   shouldComponentUpdate(nextProps, nextState) {
     console.log("[UPDATE Person.js] inside shouldComponentUpdate");
     return true;

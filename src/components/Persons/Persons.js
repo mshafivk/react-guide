@@ -2,11 +2,18 @@ import React, { Component } from "react";
 import Person from "./Person/Person";
 
 class Persons extends Component {
+    constructor(props) {
+        super(props);
+        console.log("[Persons.js] inside constructor!",props);
+        this.lastPersonRef=React.createRef();
+
+    }
   componentWillMount() {
     console.log("[Persons.js] componentWillMount Called!");
   }
   componentDidMount() {
     console.log("[Persons.js] componentDidMount Called!");
+    this.lastPersonRef.current.focus();
   }
   componentWillUnmount() {
     console.log("[Persons.js] componentWillUnmount Called!");
@@ -17,10 +24,12 @@ class Persons extends Component {
       JSON.stringify(nextProps)
     );
   }
-
+//if you are extending from PureComponent - then no need to have shouldComponentUpdate
   shouldComponentUpdate(nextProps, nextState) {
     console.log("[UPDATE Persons.js] inside shouldComponentUpdate");
     // return true;
+
+
     return (
       nextProps.persons !== this.props.persons ||
       nextProps.onDelete !== this.props.onDelete ||
@@ -43,6 +52,7 @@ class Persons extends Component {
         name={person.name}
         position={index}
         age={person.age}
+        ref={this.lastPersonRef}
         styleName={person.styleName}
         onDelete={() => this.props.onDelete(index)}
         onChange={event => this.props.onChange(event, person.id)}

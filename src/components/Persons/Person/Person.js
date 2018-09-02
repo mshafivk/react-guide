@@ -7,13 +7,17 @@ import Aux from "../../../hoc/Aux";
 import withCls from "../../../hoc/withCls";
 
 class Person extends Component {
+  constructor(props) {
+    super(props);
+    this.inputElement = React.createRef();
+  }
   componentWillMount() {
     console.log("[Person.js] componentWillMount Called!");
   }
   componentDidMount() {
     console.log("[Person.js] componentDidMount Called!");
-    if(this.props.position == 0)
-    this.inputElement.focus();
+    if(this.props.position === 0)
+    this.inputElement.current.focus();
   }
   componentWillUnmount() {
     console.log("[Person.js] componentWillUnmount Called!");
@@ -44,7 +48,7 @@ class Person extends Component {
       <Aux>
         <input
           type="text"
-          ref={(inp)=>this.inputElement = inp}
+          ref={this.inputElement}
           onChange={ev => this.props.onChange(ev, this.props.id)}
           placeholder="Update Name here"
           value={this.props.name}
